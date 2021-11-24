@@ -1,87 +1,43 @@
-html {
-    font-family: Comfortaa;
-    background-color: black;
-    overflow-y: hidden; 
-    overflow-x: hidden; 
-    
-}
-body{
-    margin: 0px;
-    padding: 0px;
-}
-.watermark{
-    position: absolute;
-    color: rgba(255, 255, 255, 0.1);
-    font-size: 10px;
-    transform: translate(-50%,50%);
-    top: 97%;
-    left: 50%;
-}
-.start_party{
-    display: flex;
+.container{
+    border-radius: 5px;
+    background-color: blanchedalmond;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+.radioGroup {
     align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    background-color: whitesmoke;
-    height: 100px;
-    width: 200px;
-    border-radius: 20px;
-    border: 2px solid white;
 }
-.start_party:hover{
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-.wrapper{
-    margin: auto;
-    z-index: 5;
-    position: absolute;
-    background: black no-repeat center center fixed;
-    background-size: cover;
-    
+
+  input {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-    
-}
-.group1,.group2,.group3,.group4{
-    width: 150px;
-    height: 150px;
-    transition: transform linear;
-    transform: translateZ(0);
-}
-.pink1{
-    position: absolute;
-    background-color: pink;
-    border-radius: 50%;
-    box-shadow: 0px 0px 40px 20px pink;
-}
-.green1{
-    position: absolute;
-    background-color: #74eb34;
-    border-radius: 50%;
-    box-shadow: 0px 0px 40px 20px #74eb34;
-}
-.blue1{
-    position: absolute;
-    background-color: #347deb;
-    border-radius: 50%;
-    box-shadow: 0px 0px 40px 20px #347deb;
-}
-.orange1{
-    position: absolute;
-    background-color: #f5641b;
-    border-radius: 50%;
-    box-shadow: 0px 0px 40px 20px #f5641b;
-}
-.violet1{
-    position: absolute;
-    background-color: #881bf5;
-    border-radius: 50%;
-    box-shadow: 0px 0px 40px 20px #881bf5;
-}
+    padding: 12px;
+    border: 1px solid red;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  #btn{
+      cursor: pointer;
+      background-color: seagreen;
+  }
+  table, td, th {
+    border: 1px solid black;
+    text-align: center;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th {
+    height: 50px;
+  }
+
+  
+

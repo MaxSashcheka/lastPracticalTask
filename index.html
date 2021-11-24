@@ -1,41 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./styles.css" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
-    <script src="./scripts.js"></script>
-    <title>Document</title>
+	<title>DATA</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="start_party">GO!!!</div>
-    </div>
-    <div class="pink1 group1"></div>
-    <div class="green1 group1"></div>
-    <div class="blue1 group1"></div>
-    <div class="orange1 group1"></div>
-    <div class="violet1 group1"></div>
 
-    <div class="pink1 group2"></div>
-    <div class="green1 group2"></div>
-    <div class="blue1 group2"></div>
-    <div class="orange1 group2"></div>
-    <div class="violet1 group2"></div>
+	<div class="container">
+        
+        <div class="radioGroup">
+            <span>
+                <input checked type="radio" value="Пассивный" name="passiveActive" id="passive">
+                Пассивный
+            </span>
+            <label>
+                <input type="radio" value="Активный" name="passiveActive" id="active">
+                Активный
+            </label>
+        </div>
 
-    <div class="pink1 group3"></div>
-    <div class="green1 group3"></div>
-    <div class="blue1 group3"></div>
-    <div class="orange1 group3"></div>
-    <div class="violet1 group3"></div>
+		<label for="fname">Название</label>
+		<input type="text" name="name" id="name">
+		<label for="lname">Стоимость</label>
+		<input type="text" name="amount" id="amount">
 
-    <div class="pink1 group4"></div>
-    <div class="green1 group4"></div>
-    <div class="blue1 group4"></div>
-    <div class="orange1 group4"></div>
-    <div class="violet1 group4"></div>
+		<input type="button" name="button" id="btn" value="Добавить" onclick="AddRow()">
+        <input type="button" name="button" id="btn" value="Рассчитать активные" onclick="calculateActive()">
+		<input type="button" name="button" id="btn" value="Рассчитать пассивные" onclick="calculatePassive()">
+		<input type="button" name="button" id="btn" value="Рассчитать итоговый баланс" onclick="calculateTotal()">
+
+        
+	</div>
+
+    <table id="show">
+        <tr>
+            <th>Тип</th>
+            <th>Название</th>
+            <th>Стоимость</th>
+        </tr>
+    </table>
+
+	<script>
+		
+		var list1 = [];
+		var list2 = [];
+		var list3 = [];
+
+		var n = 1;
+		var x = 0;
+
+		function AddRow(){
+
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+
+            console.log(document.getElementById("name").value)
+
+			list1[x] = document.querySelector('input[name="passiveActive"]:checked').value;
+			list2[x] = document.getElementById("name").value;
+			list3[x] = document.getElementById("amount").value;
+
+
+			var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+
+			cel1.innerHTML = list1[x];
+			cel2.innerHTML = list2[x];
+			cel3.innerHTML = list3[x];
+
+			n++;
+			x++;
+		}
+
+        function calculateActive() {
+            var sum = 0
+            
+            for (let i = 0; i < list1.length; i++) {
+                console.log(list1[i])
+            }   
+        }
+
+        function calculatePassive() {
+
+        }
+
+        function calculateTotal() {
+
+        }
+
+	</script>
 </body>
 </html>
