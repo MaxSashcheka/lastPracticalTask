@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DATA</title>
+	<title>Last practical</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -9,20 +9,18 @@
 	<div class="container">
         
         <div class="radioGroup">
-            <span>
-                <input checked type="radio" value="Пассивный" name="passiveActive" id="passive">
-                Пассивный
-            </span>
-            <label>
-                <input type="radio" value="Активный" name="passiveActive" id="active">
-                Активный
-            </label>
-        </div>
+			<input type="radio" value="Пассивный" name="passiveActive" id="passive" class="custom-radio">
+			<label for="passive">Пассивный</label>
+            <br>
+			<input type="radio" value="Активный" name="passiveActive" id="active" class="custom-radio">
+			<label for="active">Активный</label>
+        
+		</div>
 
-		<label for="fname">Название</label>
-		<input type="text" name="name" id="name">
-		<label for="lname">Стоимость</label>
-		<input type="text" name="amount" id="amount">
+		<label for="name">Название</label>
+		<input type="text" name="name" id="name" placeholder="Введите название">
+		<label for="amount">Стоимость</label>
+		<input type="number" name="amount" id="amount" placeholder="Введите стоимость">
 
 		<input type="button" name="button" id="btn" value="Добавить" onclick="AddRow()">
         <input type="button" name="button" id="btn" value="Рассчитать активные" onclick="calculateActive()">
@@ -32,45 +30,97 @@
         
 	</div>
 
-    <table id="show">
-        <tr>
-            <th>Тип</th>
-            <th>Название</th>
-            <th>Стоимость</th>
-        </tr>
-    </table>
+	<div class="tables">
+
+		<table id="passiveTable">
+			<tr>
+				<th>Тип</th>
+				<th>Название</th>
+				<th>Стоимость</th>
+			</tr>
+		</table>
+		
+
+		<table id="activeTable">
+			<tr>
+				<th>Тип</th>
+				<th>Название</th>
+				<th>Стоимость</th>
+			</tr>
+		</table>
+	</div>
 
 	<script>
 		
-		var list1 = [];
-		var list2 = [];
-		var list3 = [];
+		var passiveTableNameList = [];
+		var passiveTableAmountList = [];
 
-		var n = 1;
-		var x = 0;
+		var activeTableNameList = [];
+		var activeTableAmountList = [];
+
+		var passiveTableRowsNumber = 1;
+		var passiveTableSelectedIndex = 0;
+
+		var activeTableRowsNumber = 1;
+		var activeTableSelectedIndex = 0;
 
 		function AddRow(){
 
-			var AddRown = document.getElementById('show');
-			var NewRow = AddRown.insertRow(n);
+			if (document.querySelector('input[name="passiveActive"]:checked').value == "Пассивный") {
 
-            console.log(document.getElementById("name").value)
+				passiveTableNameList[passiveTableSelectedIndex] = document.getElementById("name").value;
+				passiveTableAmountList[passiveTableSelectedIndex] = document.getElementById("amount").value;
 
-			list1[x] = document.querySelector('input[name="passiveActive"]:checked').value;
-			list2[x] = document.getElementById("name").value;
-			list3[x] = document.getElementById("amount").value;
+				if (passiveTableNameList[passiveTableSelectedIndex] == "" || passiveTableAmountList[passiveTableSelectedIndex] == "") {
+					passiveTableNameList.pop
+					passiveTableAmountList.pop
+					return
+				}
 
+				var AddRown = document.getElementById('passiveTable');
+				var NewRow = AddRown.insertRow(passiveTableRowsNumber);
 
-			var cel1 = NewRow.insertCell(0);
-			var cel2 = NewRow.insertCell(1);
-			var cel3 = NewRow.insertCell(2);
+				var cel1 = NewRow.insertCell(0);
+				var cel2 = NewRow.insertCell(1);
+				var cel3 = NewRow.insertCell(2);
 
-			cel1.innerHTML = list1[x];
-			cel2.innerHTML = list2[x];
-			cel3.innerHTML = list3[x];
+				cel1.innerHTML = document.querySelector('input[name="passiveActive"]:checked').value;
+				cel2.innerHTML = passiveTableNameList[passiveTableSelectedIndex];
+				cel3.innerHTML = passiveTableAmountList[passiveTableSelectedIndex];
 
-			n++;
-			x++;
+				passiveTableRowsNumber++;
+				passiveTableSelectedIndex++;
+
+			} else {
+
+				activeTableNameList[activeTableSelectedIndex] = document.getElementById("name").value;
+				activeTableAmountList[activeTableSelectedIndex] = document.getElementById("amount").value;
+
+				if (activeTableNameList[activeTableSelectedIndex] == "" || activeTableAmountList[activeTableSelectedIndex] == "") {
+					activeTableNameList.pop
+					activeTableAmountList.pop
+					return
+				}
+
+				var AddRown = document.getElementById('activeTable');
+				var NewRow = AddRown.insertRow(activeTableRowsNumber);
+
+				
+
+				var cel1 = NewRow.insertCell(0);
+				var cel2 = NewRow.insertCell(1);
+				var cel3 = NewRow.insertCell(2);
+
+				cel1.innerHTML = document.querySelector('input[name="passiveActive"]:checked').value;
+				cel2.innerHTML = activeTableNameList[activeTableSelectedIndex];
+				cel3.innerHTML = activeTableAmountList[activeTableSelectedIndex];
+
+				activeTableRowsNumber++;
+				activeTableSelectedIndex++;
+
+			}
+
+			
 		}
 
         function calculateActive() {
