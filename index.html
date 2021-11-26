@@ -3,6 +3,7 @@
 <head>
 	<title>Last practical</title>
 	<link rel="stylesheet" href="styles.css">
+	<script src="/script.js"></script>
 </head>
 <body>
 
@@ -50,95 +51,13 @@
 		</table>
 	</div>
 
-	<script>
-		
-		var passiveTableNameList = [];
-		var passiveTableAmountList = [];
+	<div class="calculations">
+		<p id="currentActiveSummary">Текущая сумма активов: 0</p>
+		<p id="currentPassiveSummary">Текущая сумма пасивов: 0</p>
+		<p id="currentTotalSummary">Текущий итоговый баланс: 0</p>
 
-		var activeTableNameList = [];
-		var activeTableAmountList = [];
+	</div>
 
-		var passiveTableRowsNumber = 1;
-		var passiveTableSelectedIndex = 0;
 
-		var activeTableRowsNumber = 1;
-		var activeTableSelectedIndex = 0;
-
-		function AddRow(){
-
-			if (document.querySelector('input[name="passiveActive"]:checked').value == "Пассивный") {
-
-				passiveTableNameList[passiveTableSelectedIndex] = document.getElementById("name").value;
-				passiveTableAmountList[passiveTableSelectedIndex] = document.getElementById("amount").value;
-
-				if (passiveTableNameList[passiveTableSelectedIndex] == "" || passiveTableAmountList[passiveTableSelectedIndex] == "") {
-					passiveTableNameList.pop
-					passiveTableAmountList.pop
-					return
-				}
-
-				var AddRown = document.getElementById('passiveTable');
-				var NewRow = AddRown.insertRow(passiveTableRowsNumber);
-
-				var cel1 = NewRow.insertCell(0);
-				var cel2 = NewRow.insertCell(1);
-				var cel3 = NewRow.insertCell(2);
-
-				cel1.innerHTML = document.querySelector('input[name="passiveActive"]:checked').value;
-				cel2.innerHTML = passiveTableNameList[passiveTableSelectedIndex];
-				cel3.innerHTML = passiveTableAmountList[passiveTableSelectedIndex];
-
-				passiveTableRowsNumber++;
-				passiveTableSelectedIndex++;
-
-			} else {
-
-				activeTableNameList[activeTableSelectedIndex] = document.getElementById("name").value;
-				activeTableAmountList[activeTableSelectedIndex] = document.getElementById("amount").value;
-
-				if (activeTableNameList[activeTableSelectedIndex] == "" || activeTableAmountList[activeTableSelectedIndex] == "") {
-					activeTableNameList.pop
-					activeTableAmountList.pop
-					return
-				}
-
-				var AddRown = document.getElementById('activeTable');
-				var NewRow = AddRown.insertRow(activeTableRowsNumber);
-
-				
-
-				var cel1 = NewRow.insertCell(0);
-				var cel2 = NewRow.insertCell(1);
-				var cel3 = NewRow.insertCell(2);
-
-				cel1.innerHTML = document.querySelector('input[name="passiveActive"]:checked').value;
-				cel2.innerHTML = activeTableNameList[activeTableSelectedIndex];
-				cel3.innerHTML = activeTableAmountList[activeTableSelectedIndex];
-
-				activeTableRowsNumber++;
-				activeTableSelectedIndex++;
-
-			}
-
-			
-		}
-
-        function calculateActive() {
-            var sum = 0
-            
-            for (let i = 0; i < list1.length; i++) {
-                console.log(list1[i])
-            }   
-        }
-
-        function calculatePassive() {
-
-        }
-
-        function calculateTotal() {
-
-        }
-
-	</script>
 </body>
 </html>

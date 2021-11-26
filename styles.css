@@ -4,12 +4,8 @@
     border-radius: 30px;
     background-color: rgb(226, 226, 226);
     padding: 20px;
-    margin: 50px;
-  
-    /* margin-left: auto;
-    margin-right: auto;
-    display: block; */
-  }
+    margin: 30px;
+}
 
 .radioGroup {
     /* align-items: center; */
@@ -26,16 +22,19 @@
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
+    font-size: 25px;
+
   }
   #btn {
       cursor: pointer;
       background-color: #afafaf;
       color: white;
       font-size: 20px;
+      
   }
  
   .tables {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-around;
     /* position: absolute; */
@@ -43,6 +42,16 @@
 
   .tableInstance {
     width: 45px;
+  }
+
+  .calculations {
+    border-radius: 30px;
+    background-color: #afafaf;
+    padding: 5px;
+    margin: 30px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
   }
 
   table {
@@ -70,6 +79,7 @@
   table tr td {
     text-align: center;
     font-size: 20px;
+    background-color: #e7e7e7;
 
   }
   table tr th:first-child, table tr td:first-child {
@@ -116,6 +126,7 @@
     display: inline-flex;
     align-items: center;
     user-select: none;
+    font-size: 20px;
   }
   /* создание в label псевдоэлемента  before со следующими стилями */
   .custom-radio+label::before {
