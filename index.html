@@ -23,11 +23,10 @@
 		<label for="amount">Стоимость</label>
 		<input type="number" name="amount" id="amount" placeholder="Введите стоимость">
 
-		<input type="button" name="button" id="btn" value="Добавить" onclick="AddRow()">
-        <input type="button" name="button" id="btn" value="Рассчитать активные" onclick="calculateActive()">
-		<input type="button" name="button" id="btn" value="Рассчитать пассивные" onclick="calculatePassive()">
-		<input type="button" name="button" id="btn" value="Рассчитать итоговый баланс" onclick="calculateTotal()">
-
+		<input type="button" name="button" class="customButton" value="Добавить" onclick="AddRow()">
+        <input type="button" name="button" class="customButton" value="Рассчитать активные" onclick="calculateActive()">
+		<input type="button" name="button" class="customButton" value="Рассчитать пассивные" onclick="calculatePassive()">
+		<input type="button" name="button" class="customButton" value="Рассчитать итоговый баланс" onclick="calculateTotal()">
         
 	</div>
 
@@ -55,9 +54,7 @@
 		<p id="currentActiveSummary">Текущая сумма активов: 0</p>
 		<p id="currentPassiveSummary">Текущая сумма пасивов: 0</p>
 		<p id="currentTotalSummary">Текущий итоговый баланс: 0</p>
-
 	</div>
-
 
 </body>
 </html>
